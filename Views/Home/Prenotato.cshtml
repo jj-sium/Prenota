@@ -1,0 +1,37 @@
+﻿@model List<Utente>
+
+@{
+    ViewData["Title"] = "Prenotato";
+}
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check-square-fill" viewBox="0 0 16 16">
+  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm10.03 4.97a.75.75 0 0 1 .011 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.75.75 0 0 1 1.08-.022z"/>
+</svg>
+<ul class="menu">
+    <li>@Html.ActionLink("Prenotazione", "Index", "Prenotazione")</li>
+    <li>@Html.ActionLink("Registrazione", "Index", "Registrazione")</li>
+    <li>@Html.ActionLink("Visualizza tutti i record", "ViewAllRecords", "Record")</li> <!-- Esempio per MVC -->
+</ul>
+
+
+<h2>Grazie @Model[0].Nome</h2>
+<p>per esserti registrato</p>
+<p>sono stati registrati @Model.Count() utenti...</p>
+
+<table class="table table-dark">
+    <thead>
+        <th>Nome</th>
+        <th>Cognome</th>
+        <th>Tipo</th>
+        <th>Email</th>
+    </thead>
+    @{ 
+        foreach(var item in @Model) {
+        <tr>
+            <td>@item.Nome</td>
+            <td>@item.Cognome</td>
+            <td>@item.Tipo</td>
+            <td>@item.Email</td>
+        </tr>
+        }
+    }
+</table>
