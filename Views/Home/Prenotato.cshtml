@@ -1,4 +1,4 @@
-﻿@model List<Utente>
+﻿@model ghinelli.prenota._5h.Models.Utente
 
 @{
     ViewData["Title"] = "Prenotato";
@@ -13,25 +13,5 @@
 </ul>
 
 
-<h2>Grazie @Model[0].Nome</h2>
+<h2>Grazie @Model.Nome</h2>
 <p>per esserti registrato</p>
-<p>sono stati registrati @Model.Count() utenti...</p>
-
-<table class="table table-dark">
-    <thead>
-        <th>Nome</th>
-        <th>Cognome</th>
-        <th>Tipo</th>
-        <th>Email</th>
-    </thead>
-    @{ 
-        foreach(var item in @Model) {
-        <tr>
-            <td>@item.Nome</td>
-            <td>@item.Cognome</td>
-            <td>@item.Tipo</td>
-            <td>@item.Email</td>
-        </tr>
-        }
-    }
-</table>

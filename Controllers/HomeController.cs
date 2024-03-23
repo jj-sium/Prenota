@@ -23,13 +23,22 @@ public class HomeController : Controller
     {
         return View();
     }
+
+    public IActionResult Prenotazioni()
+    {
+        string? nomeUtente = HttpContext.Session.GetString("NomeUtente");
+        if (string.IsNullOrEmpty(nomeUtente))
+            return Redirect("\\home\\index");
+        dbContext db = new dbContext();
+        return View(db);
+    }
     [HttpPost]
     public IActionResult Prenotato( Utente u )
     {
         dbContext db = new dbContext();
         db.Utenti.Add(u);
         db.SaveChanges();
-        return View(db);
+        return View(u);
     }
 
     public IActionResult Privacy()

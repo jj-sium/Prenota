@@ -1,4 +1,4 @@
-﻿@model dbContext
+﻿
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -7,11 +7,3 @@
     <h1 class="display-4">Siummico</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
-@{
-    foreach( var item in Model.Utenti )
-    {
-        string res = $"{item.Nome} {item.Cognome} {item.Email}";
-        @res
-        <br/>
-    }
-}
